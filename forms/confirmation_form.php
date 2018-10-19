@@ -6,6 +6,7 @@
     $city = $_GET["city"];
     $zip = $_GET["zip"];
     $state = $_GET["state"];
+    $full_name = $first_name . " " . $last_name;
 /**
  * Created by PhpStorm.
  * User: iangoodrich
@@ -28,7 +29,7 @@
         <div class="confirmation">
             <div class="confirmation_header">
                 <h2>Thankyou for your purchase of <?php echo $purchase; ?></h2>
-                <p>Oh,  <?php echo $first_name ?> <?php echo $last_name; ?>,</p>
+                <p>Oh,  <?php echo $full_name ?></p>
                 <p>You have made us <em>so</em> happy with your patronage.</p>
                 <p>We are <em>literally</em> dancing with joy! </p>
             </div>
@@ -37,7 +38,7 @@
                 <h3 class="confimation_item"> <?php echo $purchase; ?></h3>
                 <p>And we're sending it to: </p>
                 <div class="confirmation_address">
-                    <h3><?php echo $first_name ?> <?php echo $last_name; ?></h3>
+                    <h3><?php echo $full_name ?></h3>
                     <h3><?php echo $street ?></h3>
                     <h3><?php echo $city, $state, $zip ?></h3>
                 </div>
@@ -49,6 +50,6 @@
             </div>
         </div>
 
-    </div>
+    </div>status
 </body>
 </html>

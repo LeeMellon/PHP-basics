@@ -39,7 +39,6 @@ if (isset($_GET["moviesPseudoFunction"]))
 
 if (isset($_GET["booksPseudoFunction"]))
 {
-//    $newArray = evens($booksList);
     $booksList = evens($booksList);
 }
 

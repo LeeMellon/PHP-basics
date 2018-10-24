@@ -5,42 +5,65 @@
  * Date: 10/24/18
  * Time: 9:40 AM
  */
+class Triangle
+{
+    public $sideA;
+    public $sideB;
+    public $sideC;
+
+    function __construct($sideA, $sideB, $sideC)
+    {
+        $this->sideA = $sideA;
+        $this->sideB = $sideB;
+        $this->sideC = $sideC;
+    }
+
+    function triangleTyping()
+    {
+        if (($this->sideA == $this->sideB) && ($this->sideA == $this->sideC)){
+
+            return "You've got an equilateral triangle";
+
+        } elseif (($this->sideA == $this->sideB) || ($this->sideA == $this->sideC)) {
+
+            return "You've got an isosceles triangle";
+
+        } else {
+
+            return "You've got a scalene triangle";
+        }
+
+    }
+
+    function triangleTest()
+    {
+        if (($this->sideA + $this->sideB > $this->sideC) &&
+            ($this->sideB + $this->sideC > $this->sideA) &&
+            ($this->sideC + $this->sideA > $this->sideB))
+        {
+
+            return $this->triangleTyping();
+
+        } else {
+
+            return "Sorry this is not a triangle";
+        }
+    }
+
+
+
+
+
+}
 if (isset($_GET["callPseudoFunction"])){
     $sideA = $_GET["sideA"] ?? 0;
     $sideB = $_GET["sideB"] ?? 0;
     $sideC = $_GET["sideC"] ?? 0;
 
+    $newTriangle = new Triangle($sideA, $sideB, $sideC);
 
-function triangleTyping($sideA, $sideB, $sideC)
-{
-    if (($sideA == $sideB) && ($sideA == $sideC)){
 
-        return "You've got an equilateral triangle";
-
-    } elseif (($sideA == $sideB) || ($sideA == $sideC)) {
-
-        return "You've got an isosceles triangle";
-
-    } else {
-
-        return "You've got a scalene triangle";
-    }
-
-};
-
-function triangleTest($sideA, $sideB, $sideC)
-{
-    if (($sideA + $sideB > $sideC) && ($sideB + $sideC > $sideA) && ($sideC + $sideA > $sideB))
-    {
-
-      return triangleTyping($sideA, $sideB, $sideC);
-
-    } else {
-
-      return "Sorry this is not a triangle";
-    }
-};
-    $result = triangleTest($sideA, $sideB, $sideC);
+    $result = $newTriangle->triangleTest();
 }
 
 
